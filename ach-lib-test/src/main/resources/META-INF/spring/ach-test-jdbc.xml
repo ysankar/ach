@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd">
+
+
+    <!--<jdbc:initialize-database ignore-failures="DROPS" enabled="true" data-source="dataSource">-->
+        <!--<jdbc:script location="classpath:/org/springframework/batch/core/schema-drop-${database.schema.suffix}.sql" />-->
+        <!--<jdbc:script location="classpath:/org/springframework/batch/core/schema-${database.schema.suffix}.sql" />-->
+        <!--<jdbc:script location="classpath:/com/bfds/ach/core/schema-drop-${database.schema.suffix}.sql" />-->
+        <!--<jdbc:script location="classpath:/com/bfds/ach/core/schema-${database.schema.suffix}.sql" />-->
+    <!--</jdbc:initialize-database>-->
+
+    <bean id="dataSourceInitializer" class="com.bfds.ach.calc.util.DataSourceInitializer">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="enabled" value="true"/>
+        <property name="databasePopulator">
+            <bean class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+                <property name="scripts">
+                    <list>
+                        <value>classpath:/org/springframework/batch/core/schema-drop-${database.schema.suffix}.sql</value>
+                        <value>classpath:/org/springframework/batch/core/schema-${database.schema.suffix}.sql</value>
+                        <value>classpath:/com/ach/core/schema-drop-${database.schema.suffix}.sql</value>
+                        <value>classpath:/com/ach/core/schema-${database.schema.suffix}.sql</value>
+                    </list>
+                </property>
+                <property name="ignoreFailedDrops" value="true" />
+            </bean>
+        </property>
+    </bean>
+
+    <jdbc:initialize-database ignore-failures="DROPS" enabled="true" data-source="offenderDataSource">
+        <jdbc:script location="classpath:/com/ach/core/schema-offender-drop-${database.schema.suffix}.sql" />
+        <jdbc:script location="classpath:/com/ach/core/schema-offender-${database.schema.suffix}.sql" />
+    </jdbc:initialize-database>
+
+</beans>

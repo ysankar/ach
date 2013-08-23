@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource"
+            p:driverClassName="${database.driverClassName}"
+            p:url="${database.url}"
+            p:username="${database.username}"
+            p:password="${database.password}" />
+
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager"
+          p:dataSource-ref="dataSource">
+    </bean>
+
+    <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="offenderDataSource"
+          p:driverClassName="${offender.database.driverClassName}"
+          p:url="${offender.database.url}"
+          p:username="${offender.database.username}"
+          p:password="${offender.database.password}" />
+
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="jpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory">
+    </bean>
+
+    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
+
+    <!--<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">-->
+        <!--<constructor-arg ref="dataSourceSpied" />-->
+    <!--</bean>-->
+</beans>

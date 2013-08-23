@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:packagesToScan-ref="packagesToScan"
+          p:dataSource-ref="dataSource"
+          p:jpaPropertyMap-ref="jpaPropertyMap">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+                  p:generateDdl="false"
+                  p:showSql="false" />
+        </property>
+        <property name="jpaDialect" >
+            <bean id="hibernateJpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+        </property>
+    </bean>
+
+    <util:list id="packagesToScan">
+        <value>com.bfds.ach.calc</value>
+        <value>com.ach.domain</value>
+    </util:list>
+
+    <util:map id="jpaPropertyMap">
+        <entry key="hibernate.dialect" value="${hibernate.dialect}" />
+        <entry key="jpaDialect" value="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+        <entry key="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
+        <entry key="hibernate.show_sql" value="${hibernate.show_sql}" />
+        <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}" />
+        <entry key="javax.persistence.validation.mode" value="none" />
+        <entry key="hibernate.jdbc.batch_size" value="1000" />
+        <entry key="hibernate.jdbc.order_inserts" value="true" />
+        <entry key="hibernate.jdbc.order_updates" value="true" />
+        <entry key="hibernate.jdbc.batch_versioned_data" value="true" />
+        <!--<entry key="hibernate.cache.region.factory_class" value="net.sf.ehcache.hibernate.EhCacheRegionFactory" />-->
+        <!--<entry key="hibernate.cache.use_second_level_cache" value="true" />-->
+        <!--<entry key="hibernate.cache.use_query_cache" value="true" />-->
+    </util:map>
+
+</beans>

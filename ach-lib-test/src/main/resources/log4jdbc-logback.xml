@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <!-- Errors were reported during translation. -->
+    <!-- No root logger configuration was found -->
+
+    <appender name="connection" class="ch.qos.logback.core.FileAppender">
+        <Append>false</Append>
+        <File>./logs/connection.log</File>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="jdbc" class="ch.qos.logback.core.FileAppender">
+        <Append>false</Append>
+        <File>./logs/jdbc.log</File>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="sql" class="ch.qos.logback.core.FileAppender">
+        <File>./logs/sql.log</File>
+        <Append>false</Append>
+        <encoder>
+            <pattern>%m%n%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="sqltiming" class="ch.qos.logback.core.FileAppender">
+        <File>./logs/sqltiming.log</File>
+        <Append>false</Append>
+        <encoder>
+            <pattern>-----&gt; %d{yyyy-MM-dd HH:mm:ss.SSS} %m%n%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="jdbc.connection" additivity="false" level="FATAL">
+        <appender-ref ref="connection"/>
+    </logger>
+    <logger name="jdbc.resultset" additivity="false" level="INFO">
+        <appender-ref ref="jdbc"/>
+    </logger>
+    <logger name="jdbc.audit" additivity="false" level="INFO">
+        <appender-ref ref="jdbc"/>
+    </logger>
+    <logger name="jdbc.sqlonly" additivity="false" level="DEBUG">
+        <appender-ref ref="sql"/>
+    </logger>
+    <logger name="jdbc.sqltiming" additivity="false" level="DEBUG">
+        <appender-ref ref="sqltiming"/>
+    </logger>
+</included>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property resource="logback.properties" />
+    <include resource="log4jdbc-logback.xml"/>
+    <include resource="offender-validation.xml"/>
+    
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logs.dir}/logs/ach/ach-app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${logs.dir}/logs/ach/ach-app-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 100MB -->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- SPRING -->
+    <logger name="org.springframework.beans.factory.support" level="warn" />
+    <logger name="org.springframework.transaction" level="warn" />
+    <logger name="org.springframework.orm.hibernate3" level="warn" />
+
+    <!-- HIBERNATE -->
+    <logger name="org.hibernate" level="warn" />
+    <!-- Log Hibernate SQL queries to file (log level must be DEBUG to enable it) -->
+    <logger name="org.hibernate.SQL" additivity="false" level="warn" />
+
+    <root level="info">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file" />
+    </root>
+
+</configuration>

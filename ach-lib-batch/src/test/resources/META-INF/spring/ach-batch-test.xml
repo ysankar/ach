@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="classpath:META-INF/spring/ach-test.xml"/>
+    <import resource="classpath:META-INF/spring/ach-test-jdbc.xml"/>
+    <import resource="classpath:META-INF/spring/ach-batch.xml"/>
+    <import resource="classpath:META-INF/spring/ach-domain.xml"/>
+    <import resource="classpath:META-INF/spring/ach-repository-jpa.xml"/>
+    <import resource="classpath:META-INF/spring/ach-servic.xml"/>
+    <import resource="classpath:META-INF/spring/ach-test-dataSources.xml"/>
+
+</beans>

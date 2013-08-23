@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- overriding the dataSource to enable log4jdbc-->
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg >
+            <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSourceSpied"
+                  p:driverClassName="${database.driverClassName}"
+                  p:url="${database.url}"
+                  p:username="${database.username}"
+                  p:password="${database.password}" />
+        </constructor-arg>
+    </bean>
+
+
+
+</beans>  

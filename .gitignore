@@ -1,0 +1,32 @@
+
+
+# NOTE: PLEASE avoid adding lots of ignores here.  Temporary files should go in the target folder during
+# a build so that they get CLEANed each time by the maven build.
+
+.classpath
+.settings
+.externalToolBuilders
+.project
+.DS_Store
+.checkstyle
+.idea
+.ssh
+.bash_history
+.gitconfig
+_viminfo
+.gitk
+logs
+target
+bin
+
+# META-INF - eclipse adds it in random places, so we exclude those (should be in src/main/resources/META-INF/
+*/src/main/java/META-INF/
+*/src/test/java/META-INF/
+*/**/src/main/java/META-INF/
+*/**/src/test/java/META-INF/
+
+=======
+*.iml
+.idea
+log.roo
+*.log
