@@ -54,7 +54,7 @@ public class OffenderDatabaseValidationIntegrationTest extends AbstractSingleJob
 
     public void beforeAllTests() {
         databaseUtils.createTestDate(OffenderDatabaseValidationIntegrationTest.class);
-        databaseUtils.executeScriptFile("com/bfds.ach/calc/offenderValidation/batch/offender-sqlserver.sql", offenderDataSource);
+        databaseUtils.executeScriptFile("com/bfds/ach/calc/offenderValidation/batch/offender-sqlserver.sql", offenderDataSource);
     }
 
     public void afterAllTests() {

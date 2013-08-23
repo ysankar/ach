@@ -43,7 +43,7 @@
     </bean>
 
     <bean id="offenderChunkProcessor" class="com.bfds.ach.calc.offenderValidation.batch.ChunkPreProcessorImpl" scope="step">
-        <constructor-arg index="0" type="java.lang.String" value="#{jobParameters[T(com.bfds.ach.calc).PROCESS_STATUS]}"/>
+        <constructor-arg index="0" type="java.lang.String" value="#{jobParameters[T(com.bfds.ach.calc.Constants).PROCESS_STATUS]}"/>
     </bean>
 
     <bean id="offenderWriter" class="com.bfds.ach.calc.offenderValidation.batch.OffenderWriter" scope="step">
@@ -51,8 +51,8 @@
     </bean>
 
     <bean id="nonOffenderClaimProcessor" class="com.bfds.ach.calc.offenderValidation.batch.NonOffenderClaimProcessor" scope="step">
-        <constructor-arg index="0" type="java.lang.String" value="#{jobParameters[T(com.bfds.ach.calc).PROCESS_STATUS]}"/>
-        <constructor-arg index="1" type="java.lang.String" value="#{jobParameters[T(com.bfds.ach.calc).SUCCESS_PROCESS_STATUS]}"/>
+        <constructor-arg index="0" type="java.lang.String" value="#{jobParameters[T(com.bfds.ach.calc.Constants).PROCESS_STATUS]}"/>
+        <constructor-arg index="1" type="java.lang.String" value="#{jobParameters[T(com.bfds.ach.calc.Constants).SUCCESS_PROCESS_STATUS]}"/>
     </bean>
 
 </beans>

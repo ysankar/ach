@@ -24,7 +24,6 @@
 
     <util:list id="packagesToScan">
         <value>com.bfds.ach.calc</value>
-        <value>com.ach.domain</value>
     </util:list>
 
     <util:map id="jpaPropertyMap">
