@@ -54,10 +54,6 @@
             <artifactId>log4jdbc-remix</artifactId>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-        </dependency>
 		<dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>

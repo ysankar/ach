@@ -7,11 +7,12 @@
     <!-- overriding the dataSource to enable log4jdbc-->
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg >
-            <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSourceSpied"
-                  p:driverClassName="${database.driverClassName}"
-                  p:url="${database.url}"
-                  p:username="${database.username}"
-                  p:password="${database.password}" />
+		<bean class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"
+			p:driverClass="${database.driverClassName}"
+			p:jdbcUrl="${database.url}"
+			p:username="${database.username}"
+			p:password="${database.password}"
+			/>
         </constructor-arg>
     </bean>
 

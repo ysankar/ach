@@ -6,21 +6,34 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource"
-            p:driverClassName="${database.driverClassName}"
-            p:url="${database.url}"
-            p:username="${database.username}"
-            p:password="${database.password}" />
+    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"
+        p:driverClass="${database.driverClassName}"
+        p:jdbcUrl="${database.url}"
+        p:username="${database.username}"
+        p:password="${database.password}"
+        p:maxConnectionsPerPartition="30"
+        p:minConnectionsPerPartition="10"
+        p:partitionCount="3"
+        p:acquireIncrement="5"
+        p:statementsCacheSize="100"
+        p:releaseHelperThreads="3"/>
+
 
     <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager"
           p:dataSource-ref="dataSource">
     </bean>
 
-    <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="offenderDataSource"
-          p:driverClassName="${offender.database.driverClassName}"
-          p:url="${offender.database.url}"
-          p:username="${offender.database.username}"
-          p:password="${offender.database.password}" />
+    <bean id="offenderDataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"
+        p:driverClass="${offender.database.driverClassName}"
+        p:jdbcUrl="${offender.database.url}"
+        p:username="${offender.database.username}"
+        p:password="${offender.database.password}"
+        p:maxConnectionsPerPartition="30"
+        p:minConnectionsPerPartition="10"
+        p:partitionCount="3"
+        p:acquireIncrement="5"
+        p:statementsCacheSize="100"
+        p:releaseHelperThreads="3"/>
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="jpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory">
