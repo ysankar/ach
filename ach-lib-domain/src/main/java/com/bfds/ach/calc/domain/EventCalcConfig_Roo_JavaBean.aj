@@ -3,6 +3,7 @@
 
 package com.bfds.ach.calc.domain;
 
+import com.bfds.ach.calc.domain.EventCalcConfig;
 import java.util.Date;
 
 privileged aspect EventCalcConfig_Roo_JavaBean {

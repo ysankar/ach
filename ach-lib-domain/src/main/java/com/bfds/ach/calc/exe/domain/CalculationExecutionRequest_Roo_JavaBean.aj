@@ -3,6 +3,9 @@
 
 package com.bfds.ach.calc.exe.domain;
 
+import com.bfds.ach.calc.exe.domain.Calculation;
+import com.bfds.ach.calc.exe.domain.CalculationExecutionRequest;
+
 privileged aspect CalculationExecutionRequest_Roo_JavaBean {
     
     public Long CalculationExecutionRequest.getId() {

@@ -3,6 +3,8 @@
 
 package com.bfds.ach.calc.validation.domain;
 
+import com.bfds.ach.calc.validation.domain.OffenderAddress;
+
 privileged aspect OffenderAddress_Roo_JavaBean {
     
     public String OffenderAddress.getAddress1() {
