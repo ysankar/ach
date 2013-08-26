@@ -3,6 +3,7 @@
 
 package com.bfds.ach.calc.exe.domain;
 
+import com.bfds.ach.calc.exe.domain.CalculationExecution;
 import java.util.Date;
 
 privileged aspect CalculationExecution_Roo_JavaBean {

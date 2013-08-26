@@ -3,6 +3,8 @@
 
 package com.bfds.ach.calc.validation.domain;
 
+import com.bfds.ach.calc.validation.domain.ValidationResult;
+
 privileged aspect ValidationResult_Roo_JavaBean {
     
     public Long ValidationResult.getId() {

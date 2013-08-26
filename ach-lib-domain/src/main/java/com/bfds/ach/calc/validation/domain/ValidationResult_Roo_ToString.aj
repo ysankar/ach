@@ -3,6 +3,7 @@
 
 package com.bfds.ach.calc.validation.domain;
 
+import com.bfds.ach.calc.validation.domain.ValidationResult;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

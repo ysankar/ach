@@ -3,6 +3,7 @@
 
 package com.bfds.ach.calc.exe.domain;
 
+import com.bfds.ach.calc.exe.domain.Calculation;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
