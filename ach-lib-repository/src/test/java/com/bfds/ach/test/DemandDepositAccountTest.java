@@ -1,3 +1,4 @@
+package com.bfds.ach.test;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertNull;
 
