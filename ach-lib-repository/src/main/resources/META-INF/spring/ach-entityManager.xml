@@ -23,7 +23,7 @@
     </bean>
 
     <util:list id="packagesToScan">
-        <value>com.bfds.ach.calc</value>
+        <value>com.bfds.ach</value>
     </util:list>
 
     <util:map id="jpaPropertyMap">

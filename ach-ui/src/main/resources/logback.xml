@@ -40,7 +40,7 @@
 		</layout>
 	</appender>
 
-	<logger name="com.bfds.ach.calc" level="debug" />
+	<logger name="com.bfds.ach" level="debug" />
 
 	<!-- SPRING -->
     <logger name="org.springframework.beans.factory.support" level="warn" />

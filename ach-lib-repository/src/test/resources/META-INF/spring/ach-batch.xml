@@ -24,4 +24,6 @@
     <bean id="jobRegistryBeanPostProcessor"  class="org.springframework.batch.core.configuration.support.JobRegistryBeanPostProcessor"
           p:jobRegistry-ref="jobRegistry"/>
 
+   
+
 </beans>

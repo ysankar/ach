@@ -9,7 +9,7 @@ import org.springframework.context.annotation.*;
                 "classpath:META-INF/spring/ach-batch.xml",
                 "classpath:META-INF/spring/ach-domain.xml",
                 "classpath:META-INF/spring/ach-repository-jpa.xml",
-                "classpath:META-INF/spring/ach-servic.xml"
+                "classpath:META-INF/spring/ach-service.xml"
         } )
 public class AppConfig{
 

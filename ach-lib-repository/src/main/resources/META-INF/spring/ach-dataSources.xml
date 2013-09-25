@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"
+    <bean id="dataSourceSpied" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close"
         p:driverClass="${database.driverClassName}"
         p:jdbcUrl="${database.url}"
         p:username="${database.username}"
@@ -19,7 +19,7 @@
         p:releaseHelperThreads="3"/>
 
 
-    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager"
+     <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager1"
           p:dataSource-ref="dataSource">
     </bean>
 
@@ -35,13 +35,13 @@
         p:statementsCacheSize="100"
         p:releaseHelperThreads="3"/>
 
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="jpaTransactionManager"
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager"
           p:entityManagerFactory-ref="entityManagerFactory">
     </bean>
 
     <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
 
-    <!--<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">-->
-        <!--<constructor-arg ref="dataSourceSpied" />-->
-    <!--</bean>-->
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dataSourceSpied" />
+    </bean>
 </beans>

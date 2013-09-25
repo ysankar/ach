@@ -5,12 +5,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- META-INF/spring/calc-environment.properties must be on the server classpath-->
-    <context:property-placeholder location="classpath*:META-INF/spring/calc-environment.properties"/>
+    <!-- META-INF/spring/ach-environment.properties must be on the server classpath-->
+    <context:property-placeholder location="classpath*:META-INF/spring/ach-environment.properties"/>
+    
+	<context:spring-configured/>
+    <context:annotation-config/>
 
-    <context:annotation-config />
-
-    <context:component-scan base-package="com.bfds.ach.calc">
+    <context:component-scan base-package="com.bfds.ach">
         <context:exclude-filter expression=".*_Roo_.*" type="regex"/>
     </context:component-scan>
 

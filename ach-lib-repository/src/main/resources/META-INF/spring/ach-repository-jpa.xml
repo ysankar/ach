@@ -10,7 +10,7 @@
     <beans:import resource="classpath:META-INF/spring/ach-dataSources.xml" />
     <beans:import resource="classpath:META-INF/spring/ach-entityManager.xml" />
 
-    <repositories base-package="com.bfds.ach.calc" />
+    <repositories base-package="com.bfds.ach" />
 
     <context:annotation-config />
 

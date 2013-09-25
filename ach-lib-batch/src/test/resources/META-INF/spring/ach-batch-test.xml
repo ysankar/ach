@@ -11,7 +11,7 @@
     <import resource="classpath:META-INF/spring/ach-batch.xml"/>
     <import resource="classpath:META-INF/spring/ach-domain.xml"/>
     <import resource="classpath:META-INF/spring/ach-repository-jpa.xml"/>
-    <import resource="classpath:META-INF/spring/ach-servic.xml"/>
+    <import resource="classpath:META-INF/spring/ach-service.xml"/>
     <import resource="classpath:META-INF/spring/ach-test-dataSources.xml"/>
 
 </beans>
